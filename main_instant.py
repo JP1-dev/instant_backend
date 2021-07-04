@@ -9,6 +9,7 @@ def login():
     rsp = authentication.process_login_request(request)
     return rsp
 
+@app.route('/')
+def index():
+    return "up and running:)"
 
-if __name__ == '__main__':
-    app.run(host='localhost',port=4200,debug=True)
