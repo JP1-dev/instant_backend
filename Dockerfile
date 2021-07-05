@@ -4,7 +4,7 @@ WORKDIR /app
 
 COPY . /app
 
-RUN apk update
+#RUN apk update
 
 #RUN apk add build-base
 

@@ -2,16 +2,14 @@ version: '3.9'
 
 services:
   db:
-    image: postgres
+    build: ./db/
     restart: always
-    environment:
-      POSTGRES_PASSWORD: pw
     volumes:
       - ./postgres-data:/var/lib/postgresql/data
     ports:
       - 5432:5432
 
-  web:
+  flask:
     build: .
     command: gunicorn --bind 0.0.0.0:4200 main_instant:app
     restart: always
@@ -19,12 +17,10 @@ services:
       - .:/app
     expose:
       - 4200
-    depends_on:
-      - db
 
   nginx:
-    build: ./nginx
+    build: ./nginx/
     ports:
       - 8080:8080
     depends_on:
-      - web
+      - flask
