@@ -1,0 +1,6 @@
+GET http://localhost:8080/login
+Accept: application/json
+Password: 42
+Username: jojo
+Token: slkdf
+###
