@@ -1,4 +1,4 @@
-from hashlib import sha512
+from hashlib import sha256, md5
 from db_manager import DBManager
 
 
@@ -9,10 +9,10 @@ class Authenticator():
         self.manager = DBManager()
 
     def create_token(self, username):
-        return sha512((username + self.privkey).encode()).hexdigest()
+        return sha256((username + self.privkey).encode()).hexdigest()
 
     def authenticate_token(self, username, token):
-        return token == sha512((username + self.privkey).encode()).hexdigest()
+        return token == sha256((username + self.privkey).encode()).hexdigest()
 
     def process_login_request(self, request):
         headers = request.headers

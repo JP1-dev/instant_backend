@@ -2,9 +2,10 @@ import psycopg2
 
 
 class DBManager():
-    def __init__(self, user='postgres', password='pw', host='localhost', port=5432, database='instant'):
+    def __init__(self, user='postgres', password_path='./db_pw.txt', host='localhost', port=5432, database='instant'):
         self.user = user
-        self.password = password
+        with open(password_path,'r') as f:
+            self.password = f.read()
         self.host = host
         self.port = port
         self.database = database
@@ -32,4 +33,7 @@ class DBManager():
         except psycopg2.Error:
             self.connection = self.connect()
             return 'retry'
+
+    def add_user(self, name, username, password, email, gender, tel):
+        pass
 

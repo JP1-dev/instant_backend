@@ -1,6 +1,13 @@
+POST http://localhost:8080/register
+Content-Type: application/json
+
+{
+"username": "123"
+}
+
+###
 GET http://localhost:8080/login
-Accept: application/json
-Password: 42
+#Password: 42
 Username: jojo
-Token: slkdf
+Token: 94543326a12e8d4ba76a88a0c8aa24c5661694de1da7aaee96ad01fc956cf90450d54d6bf4170c2d7a462e98f5511eab936e89e580f0ba4a832b68f916622386
 ###
